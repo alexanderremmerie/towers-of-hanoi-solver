@@ -1,10 +1,5 @@
 # get user input(rings)
-user_input = int(input("How many rings are there(max. 9)? \n"))
-
-# validating user input
-if user_input > 10:
-    print("amount of rings is greater then 9 \nending... ")
-    exit()
+user_input = int(input("How many rings are there? \n"))
 
  # start of process
 print("starting...")
@@ -14,13 +9,14 @@ rings = user_input
 print("rings: " + str(rings))
 
 # define the main_string
-main_string = ""
+main_string = "1"
 
-for number in range(1, rings + 1):
-    main_string = main_string + str(number) + main_string
-
+for number in range(2, rings + 1):
+    main_string = main_string + "," + str(number) + "," + main_string
+# main_string to array
+main_string = main_string.split(",")
+#
 print("minimum amount of moves: " + str(len(main_string)))
-print("main_string: " + main_string)
 
 # even or uneven amount of rings?
 if (rings % 2) == 0:
@@ -54,11 +50,8 @@ for x in range(1, len(main_string) + 1):
     # define  current piece
     piece = int(main_string[x - 1])
 
-     # telling wich move it is doing
-    print("move: " + str(x))
-
-    # move piece
-    print("    move piece " + str(piece) + " to tower " + str(a[piece][2]))
+     # telling wich move it is doing and move piece
+    print("move: " + str(x) + "    move piece " + str(piece) + " to tower " + str(a[piece][2]))
 
     # adjusting the values of the pieces
     if even == True:
@@ -80,3 +73,4 @@ for x in range(1, len(main_string) + 1):
 
  # end
 print("\nending...")
+
